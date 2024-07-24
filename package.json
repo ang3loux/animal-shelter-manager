@@ -1,8 +1,13 @@
 {
-  "name": "nextjs-boilerplate",
+  "name": "animal-shelter-manager",
   "version": "0.1.0",
-  "description": "Next.js boilerplate with husky, lint-staged, eslint + prettier, jest, react-testing-library, storybook, ghaction and plop.",
+  "description": "Animal shelter management system for inventory, pets, and adopters. Includes husky, lint-staged, eslint + prettier, jest, react-testing-library, storybook, ghaction, and plop",
   "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/animal-shelter-manager"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
