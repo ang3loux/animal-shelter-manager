@@ -25,16 +25,12 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
+    ecmaFeatures: { jsx: true },
     ecmaVersion: 11,
     sourceType: 'module'
   },
   settings: {
-    react: {
-      version: 'detect'
-    }
+    react: { version: 'detect' }
   },
   env: {
     es6: true,
@@ -59,23 +55,10 @@ module.exports = {
           '/^@/lib/',
           ['parent', 'sibling', 'index']
         ],
-        alphabetize: {
-          order: 'asc',
-          ignoreCase: true
-        }
+        alphabetize: { order: 'asc', ignoreCase: true }
       }
     ],
-    '@typescript-eslint/no-unused-vars': [
-      2,
-      {
-        argsIgnorePattern: '^_'
-      }
-    ],
-    'no-console': [
-      2,
-      {
-        allow: ['warn', 'error']
-      }
-    ]
+    '@typescript-eslint/no-unused-vars': [2, { argsIgnorePattern: '^_' }],
+    'no-console': [2, { allow: ['warn', 'error'] }]
   }
 };
