@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
+import { ModeToggle } from '@/components/molecules/ModeToggle';
+
 import { cn } from '@/lib/utils';
 
 interface MainLayoutProps {
@@ -17,7 +19,7 @@ export const MainLayout = ({ children, className }: MainLayoutProps) => {
 
   return (
     <div className={wrapperStyles}>
-      <header className="bg-slate-900 p-4">
+      <header className="flex justify-between bg-slate-900 p-4">
         <ul className="flex items-center gap-10 text-gray-50">
           {links.map(({ slug, label }) => (
             <li key={slug}>
@@ -27,6 +29,7 @@ export const MainLayout = ({ children, className }: MainLayoutProps) => {
             </li>
           ))}
         </ul>
+        <ModeToggle />
       </header>
       <main className="flex-1">{children}</main>
       <footer className="flex items-center justify-center p-4">

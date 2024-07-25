@@ -9,7 +9,7 @@ import { MainLayout } from '@/components/templates/MainLayout';
 
 import { cn } from '@/lib/utils';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-primary' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'Home page | Nextjs boilerplate',
@@ -24,7 +24,10 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className={cn(inter.variable, 'font-primary')} suppressHydrationWarning>
+      <body
+        className={cn('min-h-screen bg-background font-sans antialiased', inter.variable)}
+        suppressHydrationWarning
+      >
         <MainProvider>
           <MainLayout>
             <main>{children}</main>
