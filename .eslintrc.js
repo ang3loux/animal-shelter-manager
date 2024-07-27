@@ -58,7 +58,7 @@ module.exports = {
         alphabetize: { order: 'asc', ignoreCase: true }
       }
     ],
-    '@typescript-eslint/no-unused-vars': [2, { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-unused-vars': [2, { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
     'no-console': [2, { allow: ['warn', 'error'] }]
   }
 };

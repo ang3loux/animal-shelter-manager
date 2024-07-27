@@ -1,5 +1,5 @@
 **/node_modules/*
-**/out/*
+**/migrations/*
 **/.next/*
 coverage
 src/styles/globals.css

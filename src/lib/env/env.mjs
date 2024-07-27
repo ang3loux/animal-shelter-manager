@@ -1,5 +1,5 @@
 import { createEnv } from '@t3-oss/env-nextjs';
-// import { z } from 'zod';
+import { z } from 'zod';
 
 const skipValidation =
   !!process.env.SKIP_ENV_VALIDATION &&
@@ -8,11 +8,11 @@ const skipValidation =
 
 export const env = createEnv({
   skipValidation,
-  server: {},
-  client: {
-    // NEXT_PUBLIC_EXAMPLE: z.string()
+  server: {
+    POSTGRES_URL: z.string()
   },
+  client: {},
   runtimeEnv: {
-    // NEXT_PUBLIC_EXAMPLE: process.env.NEXT_PUBLIC_EXAMPLE
+    POSTGRES_URL: process.env.POSTGRES_URL
   }
 });
