@@ -52,7 +52,7 @@ const Component: React.FC = () => (
   </DropdownMenu>
 );
 
-const meta: Meta<typeof DropdownMenu> = {
+const meta: Meta = {
   title: 'Molecules/DropdownMenu',
   component: Component,
   tags: ['autodocs'],

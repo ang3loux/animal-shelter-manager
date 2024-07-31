@@ -1,14 +1,13 @@
-import { ReactNode } from 'react';
-
+import { RadixProvider } from '@/components/providers/RadixProvider';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 
 interface Props {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 // This is the place responsible for grouping all providers from the app
 export const MainProvider = ({ children }: Props) => (
   <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-    {children}
+    <RadixProvider>{children}</RadixProvider>
   </ThemeProvider>
 );

@@ -10,6 +10,16 @@ const meta: Meta<typeof Button> = {
     children: 'Button',
     variant: 'default',
     size: 'lg'
+  },
+  argTypes: {
+    variant: {
+      options: ['default', 'secondary', 'destructive', 'outline'],
+      control: { type: 'radio' }
+    },
+    size: {
+      options: ['default', 'sm', 'lg', 'icon'],
+      control: { type: 'radio' }
+    }
   }
 };
 

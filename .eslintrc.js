@@ -40,7 +40,7 @@ module.exports = {
   },
   rules: {
     'react-hooks/rules-of-hooks': 2,
-    'react-hooks/exhaustive-deps': 1,
+    'react-hooks/exhaustive-deps': 0,
     'newline-before-return': 2,
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,

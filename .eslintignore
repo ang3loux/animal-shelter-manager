@@ -1,5 +1,8 @@
 **/node_modules/*
 **/migrations/*
 **/.next/*
-coverage
+**/.husky/*
+**/public/*
+**/coverage/*
+**/pnpm-lock.yaml
 src/styles/globals.css
