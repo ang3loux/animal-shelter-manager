@@ -6,10 +6,7 @@ const meta: Meta<typeof ModeToggle> = {
   title: 'Molecules/ModeToggle',
   component: ModeToggle,
   tags: ['autodocs'],
-  args: {
-    children: 'Example',
-    variant: 'default'
-  }
+  args: {}
 };
 
 export default meta;
