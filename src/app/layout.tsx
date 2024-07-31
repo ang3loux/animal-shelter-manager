@@ -2,37 +2,27 @@ import '@/styles/globals.css';
 
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ReactNode } from 'react';
 
 import { MainProvider } from '@/components/providers/MainProvider';
-import { MainLayout } from '@/components/templates/MainLayout';
 
 import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'Home page | Nextjs boilerplate',
-  description:
-    '🚀 Boilerplate and Starter for Next.js, Tailwind CSS and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, Jest, React Testing Library, PostCSS, Tailwind CSS, Storybook, Plop, GH actions.'
+  title: 'Dashboard page | Animal Shelter Manager',
+  description: '🐱🐶 Animal shelter management system for inventory, pets, and adopters'
 };
 
 interface RootLayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en">
-      <body
-        className={cn('min-h-screen bg-background font-sans antialiased', inter.variable)}
-        suppressHydrationWarning
-      >
-        <MainProvider>
-          <MainLayout>
-            <main>{children}</main>
-          </MainLayout>
-        </MainProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn('min-h-screen bg-background font-sans antialiased', inter.variable)}>
+        <MainProvider>{children}</MainProvider>
       </body>
     </html>
   );

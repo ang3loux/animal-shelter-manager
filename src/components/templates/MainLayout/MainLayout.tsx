@@ -1,44 +1,69 @@
-import Link from 'next/link';
-import { ReactNode } from 'react';
+import Image from 'next/image';
 
-import { ModeToggle } from '@/components/molecules/ModeToggle';
+import { Button } from '@/components/atoms/Button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@/components/molecules/DropdownMenu';
+import { SideNavbar, HeaderNavbar } from '@/components/organisms/Navbar';
+import { NavigationTrace } from '@/components/organisms/NavigationTrace';
+import { SearchInput } from '@/components/organisms/SearchInput';
 
 import { cn } from '@/lib/utils';
 
-interface MainLayoutProps {
-  children: ReactNode;
+export interface MainLayoutProps {
+  children?: React.ReactNode;
   className?: string;
 }
 
-const links = [{ slug: '/', label: 'Home' }];
-
-// This is the place responsible for wrapping your app.
-// Add here components like Footer, Nav etc.
-export const MainLayout = ({ children, className }: MainLayoutProps) => {
-  const wrapperStyles = cn('flex flex-col min-h-screen', className);
+const MainLayout = ({ children, className }: MainLayoutProps) => {
+  const wrapperStyles = cn('flex min-h-screen w-full flex-col bg-muted/40', className);
 
   return (
     <div className={wrapperStyles}>
-      <header className="flex justify-between bg-slate-900 p-4">
-        <ul className="flex items-center gap-10 text-gray-50">
-          {links.map(({ slug, label }) => (
-            <li key={slug}>
-              <Link href={slug} className="inline-block p-2 transition-colors hover:text-green-300">
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <ModeToggle />
-      </header>
-      <main className="flex-1">{children}</main>
-      <footer className="flex items-center justify-center p-4">
-        ©
-        <Link href="https://www.linkedin.com/in/mateusz-hadry%C5%9B/" className="pr-2">
-          Mateusz Hadryś
-        </Link>
-        Copyright {new Date().getFullYear()}
-      </footer>
+      <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex items-center justify-between py-2">
+        <SideNavbar />
+      </aside>
+
+      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+          <HeaderNavbar className="sm:hidden" />
+
+          <NavigationTrace />
+
+          <div className="relative ml-auto flex-1 md:grow-0">
+            <SearchInput />
+          </div>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon" className="overflow-hidden rounded-full">
+                <Image
+                  src="/placeholder-user.jpg"
+                  width={36}
+                  height={36}
+                  alt="Avatar"
+                  className="overflow-hidden rounded-full"
+                />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Logout</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </header>
+
+        <main className="p-4 sm:px-6 sm:py-0">{children}</main>
+      </div>
     </div>
   );
 };
+
+export { MainLayout };
