@@ -1,19 +1,20 @@
 import { db } from '@/db/connection';
-import { UserModel, User } from '@/db/models';
+import { user, User } from '@/db/models';
 import bcrypt from 'bcrypt';
 
 export const getUsers = async () => {
-  const selectResult = await db.select().from(UserModel);
+  const selectResult = await db.select().from(user);
 
   return selectResult;
 };
 
-export const createUser = async (user: User) => {
-  const hashedPassword = await bcrypt.hash(user.password, 10);
-  const [newUser] = await db
-    .insert(UserModel)
-    .values({ ...user, password: hashedPassword })
-    .returning();
+export const createUsers = async (users: User[]) => {
+  for (const user of users) {
+    const hashedPassword = await bcrypt.hash(user.password, 10);
+    user.password = hashedPassword;
+  }
 
-  return newUser;
+  const newUsers = await db.insert(user).values(users).returning();
+
+  return newUsers;
 };
